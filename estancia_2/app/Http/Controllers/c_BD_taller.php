@@ -27,7 +27,7 @@ class c_BD_taller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $req)
+    public function store(validadorT $req)
     {
         DB::table('tb_talleres')->insert([
             'nameTaller'=>$req->input('txtnameTaller'),
@@ -51,22 +51,35 @@ class c_BD_taller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tallerid = DB::table('tb_talleres')->where('idt',$id)->first();
+        return view('editTaller', compact('tallerid'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, string $id)
     {
-        //
+        DB::table('tb_talleres')->where('idt',$id)->update([
+            'nameTaller'=>$req->input('txtnameTaller'),
+            'nameDocente'=>$req->input('txtnameDocente'),
+            'nameAlum'=>$req->input('txtnameAlum'),
+            'fh'=>$req->input('txtfh')
+        ]);
+        return redirect('listaT')->with('mensaje','Se actualizaron los datos de la solicitud');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::table('tb_talleres')->where('idt', $id)->delete();
+        return redirect('listaT')->with('mensaje', "La solicitud del taller se elimino");
+    }
+
+    public function confirm($id){
+        $tallerid = DB::table('tb_talleres')->where('idt',$id)->first();
+        return view('confirmElim', compact('tallerid'));
     }
 }

@@ -7,6 +7,10 @@
     <title>Kardex</title>
 </head>
 <body>
-    <h1>Kardex</h1>
+    <div>
+        <h1>Kardex</h1>
+        <img src="img/upq.png" alt="">
+        <p>Documento oficial escolar donde se describen datos del alumno, avance académico y calificaciones por asignatura cursada. Utilizada para: Solicitud y renovación de becas.</p>
+    </div>
 </body>
 </html>

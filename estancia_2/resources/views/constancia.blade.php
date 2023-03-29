@@ -7,6 +7,10 @@
     <title>Constancia de estudios</title>
 </head>
 <body>
-    <h1>Constancia estudiantil</h1>
+    <div>
+        <img src="img/upq.png" alt="">
+        <h1>Constancia estudiantil</h1>
+        <p>Documento oficial que acredita que el estudiante se encuentra inscrito en la institución de la Universidad Politécnica de queretaro.</p>
+    </div>
 </body>
 </html>

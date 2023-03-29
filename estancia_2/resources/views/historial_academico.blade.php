@@ -7,6 +7,11 @@
     <title>historial_academico</title>
 </head>
 <body>
-    Historial Academico
+    <div>
+        <img src="img/upq.png" alt="">
+        <h1>Historial Academico</h1>
+        <p>documento en el que de manera ordenada se enlistan las calificaciones de las materias que un alumno ha cursado hasta el momento de solicitar el historial, además se muestra el promedio general y datos escolares del estudiante.</p>
+    </div>
+    
 </body>
 </html>

@@ -24,22 +24,26 @@
 	}
     .container-xl{
 		width: 65%;
+		top: 50px;
 	}
     .card1{
 		width: 65px;
 	}
 </style>
 
-<div class="container-xl formxd mt-5 text-black" style="background-color: #EEEEEE">
-	<h1 class="text-center">Documentos</h1>
-	<div class="card1 m-4">	
-	    <p>Constancia<a href="{{route('descargarPDF')}}" class="btn btn-primary">Descargar PDF</a></p>
+<div class="container-xl formxd mt-5 text-black" style="background-color: #F0F8FF">
+	<h1 class="text-center text-black">Documentos</h1>
+	<div class="card1 m-4 text-black">	
+	    <p>Constancia</p>
+		<a href="{{route('descargarPDF')}}" class="btn btn-outline-primary">Descargar PDF</a>
 	</div>
-	<div class="card1 m-4">
-		<p>Kardex <a href="{{route('descargarPDF2')}}" class="btn btn-primary">Descargar PDF</a></p>
+	<div class="card1 m-4 text-black">
+		<p>Kardex </p>
+		<a href="{{route('descargarPDF2')}}" class="btn btn-outline-primary">Descargar PDF</a>
 	</div>
-	<div class="card1 m-4">
-		<p>Historial Academico <a href="{{route('descargarPDF3')}}" class="btn btn-primary">Descargar PDF</a></p>
+	<div class="card1 m-4 text-black">
+		<p>Historial Academico </p>
+		<a href="{{route('descargarPDF3')}}" class="btn btn-outline-primary">Descargar PDF</a>
 	</div>
 </div>
 @endsection

@@ -1,45 +1,16 @@
 @extends('plantilla')
 @section('contenido')
 <style>
-	div.formxd{
+    .container-xl{
         border-color: black;
         border-style: solid;
         border-radius: 5px;
         margin-top: 10px;
-        width: 60%;
-		width: 65%;
+        position: relative;
+        width: 75%;
+        top: 50px;
         background-color: white;
     }
-	.card1{
-		width: 65px;
-	}
-	.guardar{
-		border: none;
-		background-color: green;
-		padding: 8px 18px;
-		font-size: 16px;
-		cursor: pointer;
-		display: inline-block;
-		display: block;
-		margin-right: auto;
-		margin-left: auto;
-		color: white;
-	}
-	.form-control{
-		width: 400px;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	.form-select{
-		width: 400px;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	.container-xl{
-		width: 65%;
-		position: relative;
-		top: 50px;
-	}
 </style>
 	@if(session()->has('confirmacion'))
 	    {!! "<script> Swal.fire('Listo','Los datos se han guadado correctamente', 'success') </script>"!!}
@@ -52,9 +23,9 @@
 	<br>
 	<div>
 	    <div>
-	        <div class="container-xl formxd mt-5 text-white" style="background-color: #F0F8FF">
+	        <div class="container-xl formxd mt-5 text-black" style="background-color: #EEEEEE">
                 <br>
-				<h2 class="text-center text-black">Taller</h2>
+				<h2 class="text-center">Taller</h2>
 	             <i class="bi bi-wechat"></i>
 	        
 	@if($errors->any())
@@ -66,19 +37,20 @@
 	            @endforeach
 	        @endif
 	    <div>
-	        <form class="row g-3" method="post" action="{{ route('listaT.store') }}">
+	        <form class="row g-3" method="post" action="{{ route('listaT.update', $tallerid->idt) }}">
 	            @csrf
+                {!! method_field('PUT')!!}
                 <br>
-	    <h5 class="text-center text-black">Inscripción de taller curricular</h5>
+	    <h5 class="text-center">Editar datos de la solicitud</h5>
 		<br>
-		<div class="col-md-6">	
+		<div class="col-md-3">	
 	        <label class="form-label text-center text-black" name="labelAlum">Nombre del alumno: </label>
-			<input type="text" class="form-control" name="txtnameAlum" value="{{old('txtnameAlum')}}" required>
+			<input type="text" class="form-control" name="txtnameAlum" value="{{$tallerid->nameAlum}}" required>
 	        <p class="fw-bold text-danger"> {{$errors->first('txtnameAlum')}}</p>
 	    </div>
-		<div class="col-md-6">
+		<div class="col-md-3">
 	        <label class="form-label text-center text-black" name="labelTaller">Nombre del taller: </label>
-			<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="txtnameTaller" value="{{old('txtnameTaller')}}">
+			<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="txtnameTaller" value="{{$tallerid->nameTaller}}">
 				<option disabled selected>Selecciona una opción</option>
 				<option value="Karate">Karate</option>
 				<option value="Taekwondo">Taekwondo</option>
@@ -96,9 +68,9 @@
 			  </select>
 	        <p class="fw-bold text-danger"> {{$errors->first('txtnameTaller')}}</p>
 	    </div>
-	    <div class="col-md-6">
+	    <div class="col-md-3">
 	        <label class="form-label text-center text-black" name="labelDocente">Nombre del docente: </label>
-			<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="txtnameDocente" value="{{old('txtnameDocente')}}">
+			<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="txtnameDocente" value="{{$tallerid->nameDocente}}">
 				<option disabled selected>Selecciona una opción</option>
 				<option value="Gabo">Gabo</option>
 				<option value="Gabriel">Gabriel</option>
@@ -108,9 +80,9 @@
 	        <p class="fw-bold text-danger"> {{$errors->first('txtnameDocente')}}</p>
 	    </div>
 	    
-	    <div class="col-md-6">
+	    <div class="col-md-3">
 	        <label class="form-label text-center text-black" name="labelFH">Horarios: </label>
-			<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="txtfh" value="{{old('txtfh')}}">
+			<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="txtfh" value="{{$tallerid->fh}}">
 				<option disabled selected>Selecciona una opción</option>
 				<option value="Lunes 1:00 pm a 2:00 pm">Lunes 1:00 pm a 2:00 pm</option>
 				<option value="Lunes 12:00 pm a 1:00 pm">Lunes 12:00 pm a 1:00 pm</option>
@@ -122,7 +94,7 @@
 	        <p class="fw-bold text-danger"> {{$errors->first('txtfh')}}</p>
 	    </div>
 	        <div>
-	        <button class="btn btn-outline-success" type="submit" name="btnGuardar">Guardar</button>
+	        <button class="btn btn-info" type="submit" name="btnActualizar">Actualizar</button>
 	        </div>
 	        </form>
             <br>
